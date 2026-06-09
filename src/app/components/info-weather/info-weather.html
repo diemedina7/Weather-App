@@ -1,0 +1,39 @@
+@if (info_weather) {
+  <div class="weather-card text-center p-4">
+    <div class="weather-header mb-3">
+      <h2 class="city-name m-0">{{ info_weather.name }}</h2>
+      <span class="update-time text-muted small">{{ currenTime() | date:'dd/MM/yyyy HH:mm' }} hrs</span>
+    </div>
+
+    <div class="weather-main d-flex align-items-center justify-content-center mb-3">
+      <img [src]="'https://openweathermap.org/img/wn/' + info_weather.weather[0].icon + '@2x.png'" 
+           [alt]="info_weather.weather[0].description" 
+           class="weather-icon" />
+      <div class="temp-display text-start ms-3">
+        <span class="temperature d-block">{{ info_weather.main.temp | number:'1.0-0' }}°C</span>
+        <div class="feels-like text-muted small">
+          Sensación: <span class="fw-bold">{{ info_weather.main.feels_like | number:'1.0-0' }}°C</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="weather-desc text-capitalize fw-semibold mb-4">
+      {{ info_weather.weather[0].description }}
+    </div>
+
+    <div class="weather-details row g-3">
+      <div class="col-6">
+        <div class="detail-box p-3">
+          <span class="detail-label d-block text-muted small mb-1">💧 Humedad</span>
+          <span class="detail-value fw-bold">{{ info_weather.main.humidity }}%</span>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="detail-box p-3">
+          <span class="detail-label d-block text-muted small mb-1">💨 Viento</span>
+          <span class="detail-value fw-bold">{{ info_weather.wind.speed }} m/s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+}

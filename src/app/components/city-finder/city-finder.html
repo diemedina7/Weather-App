@@ -1,0 +1,5 @@
+<div class="search-box">
+  <input #searchCity type="text" placeholder="Buscar ciudad..." (focus)="isFocus = true" />
+  <button type="button" (click)="getWeather(searchCity.value)">🔍</button>
+</div>
+<app-select [options]="this.options" [isOpenDropdown$]="isReadyToSearch$" (onSelect)="onCitySelected($event)"></app-select>
