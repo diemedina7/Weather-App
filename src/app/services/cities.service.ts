@@ -22,7 +22,7 @@ export class CitiesService {
           name: city
         })
       ))),
-      map(response => response.filter(item => item.name.includes(name))),
+      map(response => response.filter(item => item.name.toLowerCase().includes(name.toLowerCase()))),
       map(response => response.slice(0, 10))
     );
   }

@@ -1,7 +1,7 @@
 <div class="wrapper">
   <ul class="dropdown-menu w-100" [ngClass]="localIsOpenDropdown ? 'show': ''">
     @for (city of options; track $index) {
-      <li><a class="dropdown-item" (click)="seleccionar(city.name)">{{ city.name }}</a></li>
+      <li><a class="dropdown-item" (click)="seleccionar(city.name)">{{ city.name }}, {{ city.country }}</a></li>
     }
   </ul>
 </div>
